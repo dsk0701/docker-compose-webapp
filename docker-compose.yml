@@ -6,12 +6,21 @@ services:
     container_name: nginx-proxy
     ports:
       - 80:80
+      - 443:443
     volumes:
+      - ./docker-compose.d/certs:/etc/nginx/certs:ro
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true
 
-  whoami:
-    image: jwilder/whoami
-    container_name: whoami
-    environment:
-      - VIRTUAL_HOST=whoami.local
+  nginx-proxy-companion:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: nginx-proxy-companion
+    volumes:
+      - ./docker-compose.d/certs:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    volumes_from:
+      - nginx-proxy
 
