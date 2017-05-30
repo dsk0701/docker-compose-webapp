@@ -30,5 +30,5 @@ services:
     environment:
       VIRTUAL_HOST: lgtm.mixin.tech
       LETSENCRYPT_HOST: lgtm.mixin.tech
-      LETSENCRYPT_EMAIL: d.dubandtribal@gmail.com
+      LETSENCRYPT_EMAIL: developer@mixin.tech
 
