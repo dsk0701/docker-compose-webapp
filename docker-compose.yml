@@ -28,7 +28,7 @@ services:
     image: tutum/apache-php
     container_name: apache-php
     environment:
-      VIRTUAL_HOST: lgtm.mixin.tech
-      LETSENCRYPT_HOST: lgtm.mixin.tech
-      LETSENCRYPT_EMAIL: developer@mixin.tech
+      VIRTUAL_HOST: lgtm.mixin.tokyo
+      LETSENCRYPT_HOST: lgtm.mixin.tokyo
+      LETSENCRYPT_EMAIL: developer@mixin.tokyo
 
